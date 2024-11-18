@@ -90,27 +90,28 @@
     </div>
 
     <script>
-        const rollgen = async () => {
-            const rollno = document.querySelector("#rollno").value;
-            if ((rollno>=138 && rollno<=170) && (rollno != 160 && rollno!=147)){
-                const response = await fetch("/api/rollcheck", {
-                    method:"POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify({rollno:rollno})
-                })
-                const data = await response.json();
-                const first = data.first;
-                const second = data.second;
-                document.querySelector("#first").innerHTML = `${first} & ${second}`;
-                
-            } else {
-                document.querySelector("#first").innerText= "enter roll no. in range(138-170)" ;
-                // document.querySelector("#second").innerHTML =" ";
-            }
-        }
-        document.querySelector("button").addEventListener("click", rollgen);
+       const rollgen = async () => {
+    const rollno = document.querySelector("#rollno").value;
+    if ((rollno >= 138 && rollno <= 170) && (rollno != 160 && rollno != 147)) {
+        const response = await fetch("/api/rollcheck", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({ rollno: rollno })
+        });
+        const data = await response.json();
+        const first = data.first;
+        const second = data.second;
+        document.querySelector("#first").innerHTML = `${first} & ${second}`;
+    } else {
+        document.querySelector("#first").innerText = "enter roll no. in range(138-170)";
+        // document.querySelector("#second").innerHTML = " ";
+    }
+};
+
+document.querySelector("button").addEventListener("click", rollgen);
+
     </script>
 </body>
 </html>
