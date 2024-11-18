@@ -92,7 +92,7 @@
     <script>
         const rollgen = async () => {
             const rollno = document.querySelector("#rollno").value;
-            if ((rollno>=138 && rollno<=170) && rollno != 160 && rollno!=147){
+            if ((rollno>=138 && rollno<=170) && rollno != 160 || rollno!=147){
                 const response = await fetch("/api/rollcheck", {
                     method:"POST",
                     headers: {
