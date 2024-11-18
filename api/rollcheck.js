@@ -9,7 +9,7 @@ const experimentNumber = (rollno) => {
     let second = 2;
     let arr_exp = [];
     for (let i = 138; i <= 170; i++) {
-        if (i !== 160 || i!=147) {
+        if (i !== 160 && i!=147) {
             if (rollno == i) {
                 arr_exp.push(first, second);
             }
